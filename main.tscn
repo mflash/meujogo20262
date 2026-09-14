@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cf5h40l7rhpu6" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="FontFile" uid="uid://xa6wut7ie6bp" path="res://Xolonium-Regular.ttf" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://d2faenxdodff3" path="res://simple_player.tscn" id="3_h2yge"]
 
 [node name="Main" type="Node2D" unique_id=1666430674]
 script = ExtResource("1_0xm2m")
@@ -12,3 +13,8 @@ offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("1_ig7tw")
 theme_override_font_sizes/font_size = 60
 text = "Score: 0"
+
+[node name="SimplePlayer" parent="." unique_id=1672087978 instance=ExtResource("3_h2yge")]
+position = Vector2(595, 319)
+speed = null
+rotation_speed = null
