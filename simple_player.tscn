@@ -8,6 +8,7 @@ size = Vector2(128, 128)
 
 [node name="SimplePlayer" type="CharacterBody2D" unique_id=1672087978]
 script = ExtResource("1_wtip5")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=516454452]
 texture = ExtResource("1_4t3s7")
