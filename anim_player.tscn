@@ -152,3 +152,5 @@ animation = &"down"
 visible = false
 position = Vector2(-1.5, 3)
 shape = SubResource("RectangleShape2D_e7fjm")
+
+[connection signal="animation_changed" from="PlayerSprite" to="." method="_on_player_sprite_animation_changed"]

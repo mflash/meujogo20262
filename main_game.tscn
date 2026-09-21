@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://c6q2pf6s8aa3e"]
 
 [ext_resource type="PackedScene" uid="uid://dny70bfywb4ns" path="res://anim_player.tscn" id="1_1oj5k"]
+[ext_resource type="Script" uid="uid://bv6g0g0a0g6gg" path="res://main_game.gd" id="1_f52ns"]
 [ext_resource type="Texture2D" uid="uid://bhy3jemch7cts" path="res://bricks/Brickwall6_Texture.png" id="2_yx7mw"]
 [ext_resource type="Texture2D" uid="uid://bwahhpo8f1twq" path="res://grass/grass1.png" id="3_ykeeq"]
 [ext_resource type="Texture2D" uid="uid://ue8pbs8rpww1" path="res://grass/grass2.png" id="4_dugkq"]
 [ext_resource type="Texture2D" uid="uid://s4h65j5lrn8g" path="res://grass/grass4.png" id="5_2pltu"]
 [ext_resource type="Texture2D" uid="uid://ce40u7ysy0yl4" path="res://ball.png" id="6_2pltu"]
+[ext_resource type="Script" uid="uid://cro0e0tjjuehv" path="res://hud.gd" id="8_4srsv"]
+[ext_resource type="FontFile" uid="uid://xa6wut7ie6bp" path="res://Xolonium-Regular.ttf" id="8_l5ukw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pwums"]
 size = Vector2(256, 256)
@@ -25,7 +28,8 @@ bounce = 1.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_v4fdb"]
 radius = 16.0
 
-[node name="MainGame" type="Node2D" unique_id=37358547]
+[node name="MainGame" type="Node2D" unique_id=37358547 groups=["HUD"]]
+script = ExtResource("1_f52ns")
 
 [node name="AnimPlayer" parent="." unique_id=140965944 instance=ExtResource("1_1oj5k")]
 position = Vector2(578, 313)
@@ -108,3 +112,15 @@ texture = ExtResource("6_2pltu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=846528196]
 visible = false
 shape = SubResource("CircleShape2D_v4fdb")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=900428851]
+script = ExtResource("8_4srsv")
+
+[node name="Score" type="Label" parent="HUD" unique_id=1870317334]
+offset_left = 24.0
+offset_top = 20.0
+offset_right = 199.0
+offset_bottom = 69.0
+theme_override_fonts/font = ExtResource("8_l5ukw")
+theme_override_font_sizes/font_size = 40
+text = "Score: 0"
