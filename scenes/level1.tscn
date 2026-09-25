@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://biio8u4makcak"]
+
+[ext_resource type="Texture2D" uid="uid://bhy3jemch7cts" path="res://bricks/Brickwall6_Texture.png" id="1_ejswk"]
+[ext_resource type="Texture2D" uid="uid://bwahhpo8f1twq" path="res://grass/grass1.png" id="2_bbk5w"]
+[ext_resource type="Texture2D" uid="uid://ue8pbs8rpww1" path="res://grass/grass2.png" id="3_conm7"]
+[ext_resource type="Texture2D" uid="uid://s4h65j5lrn8g" path="res://grass/grass4.png" id="4_d3jkd"]
+[ext_resource type="Texture2D" uid="uid://ce40u7ysy0yl4" path="res://ball.png" id="5_u3awl"]
+[ext_resource type="PackedScene" uid="uid://dny70bfywb4ns" path="res://anim_player.tscn" id="6_2ku1j"]
+[ext_resource type="PackedScene" uid="uid://jqvm3yh460ax" path="res://objects/box.tscn" id="7_f31uk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwums"]
+size = Vector2(256, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6bm6p"]
+size = Vector2(377, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f52ns"]
+size = Vector2(285, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5ukw"]
+size = Vector2(91, 36)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2pltu"]
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v4fdb"]
+radius = 16.0
+
+[node name="Level" type="Node" unique_id=1908035272]
+
+[node name="Scenery" type="Node" parent="." unique_id=218512370]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Scenery" unique_id=621159129]
+position = Vector2(1012, 198)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Scenery/StaticBody2D" unique_id=1766877961]
+texture = ExtResource("1_ejswk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/StaticBody2D" unique_id=1422995705]
+visible = false
+shape = SubResource("RectangleShape2D_pwums")
+
+[node name="grass1" type="StaticBody2D" parent="Scenery" unique_id=1734829400]
+position = Vector2(226, 339)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Scenery/grass1" unique_id=2092025768]
+texture = ExtResource("2_bbk5w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/grass1" unique_id=321449174]
+visible = false
+position = Vector2(3.5, -2)
+shape = SubResource("RectangleShape2D_6bm6p")
+
+[node name="grass2" type="StaticBody2D" parent="Scenery" unique_id=532608776]
+position = Vector2(263, 529)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Scenery/grass2" unique_id=852522430]
+texture = ExtResource("3_conm7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/grass2" unique_id=2016308355]
+visible = false
+position = Vector2(0.5, -2)
+shape = SubResource("RectangleShape2D_f52ns")
+
+[node name="grass3" type="StaticBody2D" parent="Scenery" unique_id=855675690]
+position = Vector2(565, 419)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Scenery/grass3" unique_id=792985023]
+texture = ExtResource("4_d3jkd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/grass3" unique_id=1781576581]
+visible = false
+position = Vector2(-0.5, -2)
+shape = SubResource("RectangleShape2D_l5ukw")
+
+[node name="grass4" type="StaticBody2D" parent="Scenery" unique_id=379325089]
+position = Vector2(853, 529)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Scenery/grass4" unique_id=682419824]
+texture = ExtResource("2_bbk5w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/grass4" unique_id=88060350]
+visible = false
+position = Vector2(3.5, -2)
+shape = SubResource("RectangleShape2D_6bm6p")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Scenery" unique_id=34280440]
+position = Vector2(209.99998, 43.999996)
+physics_material_override = SubResource("PhysicsMaterial_2pltu")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Scenery/RigidBody2D" unique_id=160906512]
+texture = ExtResource("5_u3awl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/RigidBody2D" unique_id=481037735]
+visible = false
+shape = SubResource("CircleShape2D_v4fdb")
+
+[node name="AnimPlayer" parent="." unique_id=140965944 instance=ExtResource("6_2ku1j")]
+position = Vector2(578, 313)
+box = ExtResource("7_f31uk")
+
+[node name="Camera2D" type="Camera2D" parent="AnimPlayer" unique_id=1753956127]
+limit_left = 0
+limit_top = 0
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="Position2D" type="Marker2D" parent="." unique_id=240421275]
+position = Vector2(413, 723)

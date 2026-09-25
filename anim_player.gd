@@ -6,6 +6,7 @@ signal jumped
 @export var speed = 300.0
 @export var jump_speed := -1000.0
 @export var gravity := 2500.0
+@export var box : PackedScene
 
 @onready var sprite = $PlayerSprite
 
@@ -24,6 +25,9 @@ func get_side_input():
 		velocity.y = jump_speed
 		jumped.emit() # notifica quem estiver "ouvindo"
 		get_tree().call_group("HUD", "update_game_score", 2)
+		var b := box.instantiate()
+		b.position = global_position
+		owner.add_child(b) # adiciona sob a raiz da cena
 	velocity.x = vel * speed
 
 

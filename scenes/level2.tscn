@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://s26n7qtol8mi"]
+
+[ext_resource type="Texture2D" uid="uid://bhy3jemch7cts" path="res://bricks/Brickwall6_Texture.png" id="1_6ep0u"]
+[ext_resource type="Texture2D" uid="uid://bwahhpo8f1twq" path="res://grass/grass1.png" id="2_hrcei"]
+[ext_resource type="Texture2D" uid="uid://ue8pbs8rpww1" path="res://grass/grass2.png" id="3_xa7n4"]
+[ext_resource type="Texture2D" uid="uid://s4h65j5lrn8g" path="res://grass/grass4.png" id="4_bo4dx"]
+[ext_resource type="PackedScene" uid="uid://dny70bfywb4ns" path="res://anim_player.tscn" id="6_8g4ke"]
+[ext_resource type="PackedScene" uid="uid://jqvm3yh460ax" path="res://objects/box.tscn" id="7_56gwk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwums"]
+size = Vector2(256, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6bm6p"]
+size = Vector2(377, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f52ns"]
+size = Vector2(285, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5ukw"]
+size = Vector2(91, 36)
+
+[node name="Level" type="Node" unique_id=1908035272]
+
+[node name="Scenery" type="Node" parent="." unique_id=218512370]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Scenery" unique_id=621159129]
+position = Vector2(1177, 423)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Scenery/StaticBody2D" unique_id=1766877961]
+texture = ExtResource("1_6ep0u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/StaticBody2D" unique_id=1422995705]
+visible = false
+shape = SubResource("RectangleShape2D_pwums")
+
+[node name="grass1" type="StaticBody2D" parent="Scenery" unique_id=1734829400]
+position = Vector2(286, 230)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Scenery/grass1" unique_id=2092025768]
+texture = ExtResource("2_hrcei")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/grass1" unique_id=321449174]
+visible = false
+position = Vector2(3.5, -2)
+shape = SubResource("RectangleShape2D_6bm6p")
+
+[node name="grass5" type="StaticBody2D" parent="Scenery" unique_id=658136203]
+position = Vector2(780, 80)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Scenery/grass5" unique_id=1671187181]
+texture = ExtResource("2_hrcei")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/grass5" unique_id=627257422]
+visible = false
+position = Vector2(3.5, -2)
+shape = SubResource("RectangleShape2D_6bm6p")
+
+[node name="grass2" type="StaticBody2D" parent="Scenery" unique_id=532608776]
+position = Vector2(896, 528)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Scenery/grass2" unique_id=852522430]
+texture = ExtResource("3_xa7n4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/grass2" unique_id=2016308355]
+visible = false
+position = Vector2(0.5, -2)
+shape = SubResource("RectangleShape2D_f52ns")
+
+[node name="grass3" type="StaticBody2D" parent="Scenery" unique_id=855675690]
+position = Vector2(623, 399)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Scenery/grass3" unique_id=792985023]
+texture = ExtResource("4_bo4dx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/grass3" unique_id=1781576581]
+visible = false
+position = Vector2(-0.5, -2)
+shape = SubResource("RectangleShape2D_l5ukw")
+
+[node name="grass4" type="StaticBody2D" parent="Scenery" unique_id=379325089]
+position = Vector2(297, 562)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Scenery/grass4" unique_id=682419824]
+texture = ExtResource("2_hrcei")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/grass4" unique_id=88060350]
+visible = false
+position = Vector2(3.5, -2)
+shape = SubResource("RectangleShape2D_6bm6p")
+
+[node name="AnimPlayer" parent="." unique_id=140965944 instance=ExtResource("6_8g4ke")]
+position = Vector2(635, 333)
+box = ExtResource("7_56gwk")
+
+[node name="Camera2D" type="Camera2D" parent="AnimPlayer" unique_id=1753956127]
+limit_left = 0
+limit_top = 0
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="Position2D" type="Marker2D" parent="." unique_id=240421275]
+position = Vector2(511, 696)
