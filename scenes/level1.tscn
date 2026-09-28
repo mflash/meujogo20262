@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ce40u7ysy0yl4" path="res://ball.png" id="5_u3awl"]
 [ext_resource type="PackedScene" uid="uid://dny70bfywb4ns" path="res://anim_player.tscn" id="6_2ku1j"]
 [ext_resource type="PackedScene" uid="uid://jqvm3yh460ax" path="res://objects/box.tscn" id="7_f31uk"]
+[ext_resource type="AudioStream" uid="uid://dvf03ybdcy2qq" path="res://SFX/Chiptune_Adventures_1.ogg" id="8_bbk5w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pwums"]
 size = Vector2(256, 256)
@@ -115,3 +116,11 @@ editor_draw_drag_margin = true
 
 [node name="Position2D" type="Marker2D" parent="." unique_id=240421275]
 position = Vector2(413, 723)
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1874238946]
+position = Vector2(5, 271)
+stream = ExtResource("8_bbk5w")
+autoplay = true
+max_distance = 850.0
+bus = &"Music"
+parameters/looping = true

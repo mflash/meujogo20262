@@ -47,9 +47,9 @@ func _physics_process(delta: float) -> void:
 		print("Player saiu da tela!")
 		#get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 		# Troca para o level 2
-		#call_deferred("goto_scene", "res://scenes/level2.tscn")
+		call_deferred("goto_scene", "res://scenes/level2.tscn")
 		# ... ou game over, se for o caso
-		call_deferred("goto_scene", "res://scenes/game_over.tscn")
+		#call_deferred("goto_scene", "res://scenes/game_over.tscn")
 		# Não pode trocar imediatamente, pois está no MEIO do frame
 		#goto_scene("res://scenes/level2.tscn")
 

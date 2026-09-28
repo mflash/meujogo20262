@@ -22,4 +22,7 @@ text = "Score: 0"
 
 [node name="Level" parent="." unique_id=1908035272 instance=ExtResource("4_6bm6p")]
 
+[node name="Camera2D" parent="Level/AnimPlayer" parent_id_path=PackedInt32Array(1908035272, 140965944) index="3" unique_id=1753956127]
+limit_enabled = false
+
 [editable path="Level"]

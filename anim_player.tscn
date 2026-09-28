@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d4a485jl43h5" path="res://char.png" id="1_dlpot"]
 [ext_resource type="Script" uid="uid://bg06y2bdug7fq" path="res://anim_player.gd" id="1_pwums"]
+[ext_resource type="AudioStream" uid="uid://d4nqxpd41dlll" path="res://SFX/jump1.ogg" id="3_06eal"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pwums"]
 atlas = ExtResource("1_dlpot")
@@ -152,5 +153,9 @@ animation = &"down"
 visible = false
 position = Vector2(-1.5, 3)
 shape = SubResource("RectangleShape2D_e7fjm")
+
+[node name="Jump" type="AudioStreamPlayer" parent="." unique_id=1517147741]
+stream = ExtResource("3_06eal")
+bus = &"SFX"
 
 [connection signal="animation_changed" from="PlayerSprite" to="." method="_on_player_sprite_animation_changed"]

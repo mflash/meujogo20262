@@ -6,9 +6,10 @@ signal jumped
 @export var speed = 300.0
 @export var jump_speed := -1000.0
 @export var gravity := 2500.0
-@export var box : PackedScene
+@export var box: PackedScene
 
 @onready var sprite = $PlayerSprite
+@onready var jumpPlayer = $Jump
 
 
 func get_8way_input():
@@ -21,14 +22,25 @@ func get_side_input():
 	var vel := Input.get_axis("left", "right")
 	var jump := Input.is_action_just_pressed('ui_select')
 
-	if is_on_floor() and jump:
+	if jump: #is_on_floor() and jump:
 		velocity.y = jump_speed
 		jumped.emit() # notifica quem estiver "ouvindo"
 		get_tree().call_group("HUD", "update_game_score", 2)
 		var b := box.instantiate()
 		b.position = global_position
 		owner.add_child(b) # adiciona sob a raiz da cena
+		if not jumpPlayer.playing:
+			jumpPlayer.play()
 	velocity.x = vel * speed
+
+	if Input.is_action_just_pressed("filter"):
+		print("Total buses: " + str(AudioServer.bus_count))
+		# Bus 2 (Music), effect 0 (LowPassFilter)
+		var efeito: AudioEffectLowPassFilter = AudioServer.get_bus_effect(2, 0)
+		if efeito.cutoff_hz == 20500:
+			efeito.cutoff_hz = 500
+		else:
+			efeito.cutoff_hz = 20500
 
 
 func animate_side():
